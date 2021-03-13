@@ -1,0 +1,49 @@
+@model InStock.Database.Produkt
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Edycja produktu</h1>
+<form action="/Produkty/Edycja" method="POST">
+  <div class="row mb-3">
+    <div class="col-3">
+      <label for="K">Kod produktu</label>
+      <input type="text" class="form-control" placeholder="Kod" name="Kod" value="@Model.Kod">
+    </div>
+    <div class="col-9">
+      <label for="Nazwa">Nazwa</label>
+      <input type="text" class="form-control" placeholder="Nazwa" name="Nazwa" value="@Model.Nazwa">
+    </div>
+  </div>
+    <div class="row mb-3">
+     <div class="col">
+      <label for="Ilość rozmiaru XS">Rozmiar XS</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XS" name="RozmiarXS" value="@Model.RozmiarXS" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru S">Rozmiar S</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru S" name="RozmiarS" value="@Model.RozmiarS" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru M">Rozmiar M</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru M" name="RozmiarM" value="@Model.RozmiarM" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru L">Rozmiar L</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru L" name="RozmiarL" value="@Model.RozmiarL" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru XL">Rozmiar XL</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XL" name="RozmiarXL" value="@Model.RozmiarXL" min="0" max="5">
+    </div>
+    </div>
+   <div class="row mb-3">
+    <div class="col">
+      <label for="Cena">Cena</label>
+      <input type="text" class="form-control" placeholder="Cena" name="Cena" value="@Model.Cena">
+    </div>
+   </div>
+      <input type="hidden" class="form-control" placeholder="ProduktId" name="ProduktId" value="@Model.ProduktId">
+  <button type="submit" class="btn btn-primary">Edytuj</button>
+</form>

@@ -1,0 +1,36 @@
+@model InStock.Database.Produkt
+
+@{
+  ViewData["Title"] = "Index";
+}
+
+<h1>Przenoszenie produktu</h1>
+
+<form action="/Sklep/Przenies" method="POST">
+  <div class="row mb-3">
+    <div class="col">
+      <label for="Ilość rozmiaru XS">Rozmiar XS</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XS" name="RozmiarXS" value="@Model.RozmiarXS" min="0" max="@Model.RozmiarXS">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru S">Rozmiar S</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru S" name="RozmiarS" value="@Model.RozmiarS" min="0" max="@Model.RozmiarS">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru M">Rozmiar M</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru M" name="RozmiarM" value="@Model.RozmiarM" min="0" max="@Model.RozmiarM">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru L">Rozmiar L</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru L" name="RozmiarL" value="@Model.RozmiarL" min="0" max="@Model.RozmiarL">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru XL">Rozmiar XL</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XL" name="RozmiarXL" value="@Model.RozmiarXL" min="0" max="@Model.RozmiarXL">
+    </div>
+    <div class="col">
+      <input type="hidden" class="form-control" placeholder="ProduktId" name="ProduktId" value="@Model.ProduktId">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Przenieś</button>
+</form>

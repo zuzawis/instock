@@ -1,0 +1,53 @@
+@model System.Collections.Generic.List<InStock.Database.Powiadomienie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Powiadomienia</h1>
+
+<style>
+    table {
+        width: 100%;
+        border-color: #000000;
+    }
+
+    th,
+    td {
+        padding: 7px 10px 10px 10px;
+    }
+
+    th {
+        text-transform: uppercase;
+        font-size: 90%;
+        text-align: center;
+    }
+
+    tr.even {
+        background-color: #efefef;
+    }
+
+    tr:hover {
+        background-color: #c3e6e5;
+    }
+</style>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th style="vertical-align: middle">Data</th>
+            <th style="vertical-align: middle">Tytuł</th>
+            <th style="vertical-align: middle">Opis</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var powiadomienie in Model)
+    {
+        <tr>
+            <td>@powiadomienie.Data</td>
+            <td>@powiadomienie.Tytul</td>
+            <td>@powiadomienie.Opis</td>
+            <td><a href="/Powiadomienia/Usun/@powiadomienie.PowiadomienieId">Usuń powiadomienie</a></td>
+        </tr>
+    }
+</table>

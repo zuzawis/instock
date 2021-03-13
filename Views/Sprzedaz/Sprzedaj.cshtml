@@ -1,0 +1,55 @@
+@model InStock.Database.StanSklepu
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sprzedaż produktu</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">@Html.ValidationSummary()</div>
+}
+
+<form action="/Sprzedaz/Sprzedaj" method="POST">
+    <div class="form-group">
+        <label for="kod">Kod</label>
+        <input type="text" class="form-control" placeholder="Kod" name="Kod" value="@Model.Produkt.Kod">
+    </div>
+    <div class="form-group">
+        <label for="nazwa">Nazwa</label>
+        <input type="text" class="form-control" placeholder="Nazwa" name="Nazwa" value="@Model.Produkt.Nazwa">
+    </div>
+    <div class="col">
+        <label for="Ilość rozmiaru XS">Rozmiar XS</label>
+        <input type="number" class="form-control" placeholder="Ilość rozmiaru XS" name="RozmiarXS" min="0" value="0" max="@Model.RozmiarXS">
+    </div>
+    <div class="col">
+        <label for="Ilość rozmiaru S">Rozmiar S</label>
+        <input type="number" class="form-control" placeholder="Ilość rozmiaru S" name="RozmiarS" min="0" value="0" max="@Model.RozmiarS">
+    </div>
+    <div class="col">
+        <label for="Ilość rozmiaru M">Rozmiar M</label>
+        <input type="number" class="form-control" placeholder="Ilość rozmiaru M" name="RozmiarM" min="0" value="0" max="@Model.RozmiarM">
+    </div>
+    <div class="col">
+        <label for="Ilość rozmiaru L">Rozmiar L</label>
+        <input type="number" class="form-control" placeholder="Ilość rozmiaru L" name="RozmiarL" min="0" value="0" max="@Model.RozmiarL">
+    </div>
+    <div class="col">
+        <label for="Ilość rozmiaru XL">Rozmiar XL</label>
+        <input type="number" class="form-control" placeholder="Ilość rozmiaru XL" name="RozmiarXL" min="0" value="0" max="@Model.RozmiarXL">
+    </div>
+    <div class="form-group">
+        <label for="cena">Cena</label>
+        <input type="text" class="form-control" placeholder="Cena" name="Cena" value="@Model.Produkt.Cena">
+    </div>
+    <div class="form-group">
+        <input type="hidden" class="form-control" placeholder="StanSklepuId" name="StanSklepuId"
+            value="@Model.StanSklepuId">
+    </div>
+    <div class="form-group">
+        <input type="hidden" class="form-control" placeholder="ProduktId" name="ProduktId" value="@Model.ProduktId">
+    </div>
+    <button type="submit" class="btn btn-primary">Sprzedaj</button>
+</form>

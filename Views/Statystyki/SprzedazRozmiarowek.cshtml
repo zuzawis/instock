@@ -1,0 +1,48 @@
+@model InStock.Models.SprzedazDzienna.SprzedazDniaRozmiarow
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+    var dane = @Html.Raw(Json.Serialize(Model));
+
+    var ctx = document.getElementById('myChart');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['XS', 'S', 'M', 'L', 'XL'],
+            datasets: [{
+                labels: "Sprzedaż Dzienna Rozmiarowek",
+                data: [dane.iloscXS, dane.iloscS, dane.iloscM, dane.iloscL, dane.iloscXL],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Sprzedaż rozmiarówek'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

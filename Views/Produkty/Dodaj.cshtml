@@ -1,0 +1,49 @@
+@model InStock.Database.Produkt
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dodawanie produktu</h1>
+<form action="/Produkty/Dodaj" method="POST">
+  <div class="row mb-3">
+    <div class="col">
+      <label for="Kod">Kod</label>
+      <input type="text" class="form-control" placeholder="Kod" name="Kod">
+    </div>
+    <div class="col-9">
+      <label for="Nazwa">Nazwa produktu</label> 
+      <input type="text" class="form-control" placeholder="Nazwa" name="Nazwa">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <label for="Ilość rozmiaru XS">Rozmiar XS</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XS" name="RozmiarXS" value="0" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru S">Rozmiar S</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru S" name="RozmiarS" value="0" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru M">Rozmiar M</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru M" name="RozmiarM" value="0" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru L">Rozmiar L</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru L" name="RozmiarL" value="0" min="0" max="5">
+    </div>
+    <div class="col">
+      <label for="Ilość rozmiaru XL">Rozmiar XL</label>
+      <input type="number" class="form-control" placeholder="Ilość rozmiaru XL" name="RozmiarXL" value="0" min="0" max="5">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <label for="Cena">Cena</label>
+      <input type="text" class="form-control" placeholder="Cena" name="Cena">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+

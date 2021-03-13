@@ -1,0 +1,80 @@
+@model List<InStock.Models.SprzedazMiesieczna.SprzedazMiesiecznaPodsumowanie>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+ var colors = ['#0099cc', '#b366ff', '#b30086', '#990000', '#ff661a', '#ffff00', '#44cc00', '#39ac73', '#b3b3ff', '#ff80bf'];
+    var dane = @Html.Raw(Json.Serialize(Model));
+    var labels = dane.map(x => x.data);
+    var data = {};
+    for (var i=0; i<dane.length; i++)
+    {
+        var pojedynczeDane = dane[i];
+        for(var j=0;j<pojedynczeDane.sprzedazMiesieczna.length;j++) {
+            var sprzedazProduktu = pojedynczeDane.sprzedazMiesieczna[j];
+            if (!data[sprzedazProduktu.productId]) {
+                data[sprzedazProduktu.productId] = { ilosc: [], nazwa: sprzedazProduktu.nazwa, productId: sprzedazProduktu.productId};
+            }
+            data[sprzedazProduktu.productId].ilosc.push(sprzedazProduktu.ilosc);
+        }
+    }
+    console.log(labels);
+    console.log(data);
+
+    var datasets = [];
+    Object.keys(data).forEach((klucz, index) => {
+        var daneProduktu = data[klucz];
+        var dataset = {
+            label: daneProduktu.nazwa,
+            backgroundColor: colors[index % colors.length],
+            borderColor: colors[index % colors.length],
+            data: daneProduktu.ilosc,
+            fill: false
+        }
+        datasets.push(dataset);
+    });
+    console.log(datasets);
+
+    window.onload = function () {
+        var ctx = document.getElementById('myChart');
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Sprzedaż miesięczna'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Daty'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Ilość'
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+</script>

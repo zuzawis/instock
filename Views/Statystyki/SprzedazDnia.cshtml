@@ -1,0 +1,53 @@
+@model List<InStock.Models.SprzedazDzienna.SprzedazDniaElement>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+    var dane = @Html.Raw(Json.Serialize(Model));
+
+    window.onload = function () {
+        var bgColors = [];
+        for (var i = 0; i < dane.length; i++) {
+            bgColors.push(colors[i % colors.length]);
+        }
+
+        var ctx = document.getElementById('myChart');
+
+        var labels = dane.map(x => x.nazwa);
+        var ilosc = dane.map(x => x.ilosc);
+
+        window.myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: ilosc,
+                    backgroundColor: bgColors
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Sprzedaż dnia'
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    };
+
+</script>

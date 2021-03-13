@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/zuziawisniewska/Documents/studia/semV/pp/roboczyprojekt/pracownia-programowania-2020/InStock.csproj": {}
+  },
+  "projects": {
+    "/Users/zuziawisniewska/Documents/studia/semV/pp/roboczyprojekt/pracownia-programowania-2020/InStock.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zuziawisniewska/Documents/studia/semV/pp/roboczyprojekt/pracownia-programowania-2020/InStock.csproj",
+        "projectName": "InStock",
+        "projectPath": "/Users/zuziawisniewska/Documents/studia/semV/pp/roboczyprojekt/pracownia-programowania-2020/InStock.csproj",
+        "packagesPath": "/Users/zuziawisniewska/.nuget/packages/",
+        "outputPath": "/Users/zuziawisniewska/Documents/studia/semV/pp/roboczyprojekt/pracownia-programowania-2020/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zuziawisniewska/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

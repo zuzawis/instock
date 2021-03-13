@@ -1,0 +1,76 @@
+﻿@model System.Collections.Generic.List<InStock.Database.StanSklepu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stan sklepowy</h1>
+
+<style>
+    table 
+    {
+        width: 100%;
+        border-color: #000000;
+    }
+
+    th,td 
+    {
+        padding: 7px 10px 10px 10px;
+    }
+
+    th 
+    {
+        text-transform: uppercase;
+        font-size: 90%;
+        text-align: center;
+    }
+
+    tr.even 
+    {
+        background-color: #efefef;
+    }
+
+    tr:hover 
+    {
+        background-color: #c3e6e5;
+    }
+</style>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+        <th rowspan="2" style="vertical-align: middle">Kod</th>
+        <th rowspan="2" style="vertical-align: middle">Nazwa</th>
+        <th colspan="5">Ilości rozmiarowe</th>
+        <th rowspan="2" style="vertical-align: middle">Cena</th>
+        <th rowspan="2"></th>
+        <th rowspan="2"></th>
+        <th rowspan="2"></th>
+        </tr>
+        
+        
+        <tr>
+            <th>XS</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+        </tr>
+    </thead>
+    @foreach (var stanSklepu in Model)
+    {
+        <tr>
+            <td>@stanSklepu.Produkt.Kod</td>
+            <td>@stanSklepu.Produkt.Nazwa</td>
+            <td>@stanSklepu.RozmiarXS</td>
+            <td>@stanSklepu.RozmiarS</td>
+            <td>@stanSklepu.RozmiarM</td>
+            <td>@stanSklepu.RozmiarL</td>
+            <td>@stanSklepu.RozmiarXL</td>
+            <td>@stanSklepu.Produkt.Cena</td>
+            <td><a href="/Sklep/Usun/@stanSklepu.StanSklepuId">Usuń produkt</a></td>
+            <td><a href="/Sklep/Przenies/@stanSklepu.ProduktId">Przenieś z magazynu</a></td>
+            <td><a href="/Sprzedaz/Sprzedaj/@stanSklepu.StanSklepuId">Sprzedaj produkt</a></td>
+        </tr>
+    }
+</table>
